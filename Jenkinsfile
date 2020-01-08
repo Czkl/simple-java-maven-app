@@ -40,12 +40,12 @@ pipeline {
                     image 'docker'
                     // 这里的挂载比较奇怪，因为在上一步maven构建完成之后并没有生成target(现在想来可能是docker的缘故)，
                     // 所以把本地的maven仓库给挂载进来获取jar包使用了
-                    args '-v /var/jenkins_home/workspace/pipeline-demo/target:/root/jar'
+                    args '-v /var/jenkins_home/workspace/pipeline-demo@2/target/my-app-1.0-SNAPSHOT.jar:/root/jar/app.jar'
                 }
             }
             steps {
                 sh '''
-                    cp /root/jar/my-app-1.0-SNAPSHOT.jar /my-app-1.0-SNAPSHOT.jar
+                    cp /root/jar/app.jar /my-app-1.0-SNAPSHOT.jar
                     cd docker
                     docker build -t my-app-1.0-SNAPSHOT .
                 '''
