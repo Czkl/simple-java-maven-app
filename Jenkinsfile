@@ -45,15 +45,28 @@ pipeline {
             }
             steps {
                 sh '''
-                    pwd
-                    ls
-                    which docker
-                    cat Jenkinsfile
-                    ls target
+                   pwd
+                   ls
+                   which docker
+                   cat Jenkinsfile
+                   ls target
                 '''
                 sh 'docker --version'
+                sh '''
+                   image_version=`date +%Y%m%d%H%M`;
+                   echo $image_version;
+                   docker stop myapp
+                   docker rm myapp
+                   docker rmi myapp
+                   docker build -t myapp .
+                   docker run -d
+                '''
                 sh 'docker build -t myapp .'
+
             }
+        }
+        stage('push images'){
+
         }
     }
 }
