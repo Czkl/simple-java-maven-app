@@ -58,11 +58,9 @@ pipeline {
                    docker stop myapp
                    docker rm myapp
                    docker rmi myapp
-                   docker build -t myapp .
-                   docker run -d
+                   docker build -t myapp:$image_version .
+                   docker run -d --name myapp myapp:$image_version
                 '''
-                sh 'docker build -t myapp .'
-
             }
         }
         stage('push images'){
