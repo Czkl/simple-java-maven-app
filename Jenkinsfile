@@ -45,6 +45,10 @@ pipeline {
             }
             steps {
                 sh '''
+                    cd /
+                    ls
+                    cd ~
+                    pwd
                     ls
                     which docker
                     cat Jenkinsfile
