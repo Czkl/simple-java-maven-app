@@ -69,8 +69,6 @@ pipeline {
         success {
             echo 'This will run only if successful'
             sh '''
-                docker stop myapp
-                docker rm myapp
                 docker run -d --name myapp myapp:$image_version
             '''
         }
