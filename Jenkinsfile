@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment{
-        image_version = v2
+        image_version = "v2"
     }
     stages {
         stage('Checkout') {
