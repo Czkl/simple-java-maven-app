@@ -1,6 +1,8 @@
 pipeline {
     agent any
-
+    environment{
+        image_version = "${sh(date +%Y%m%d%H%M)}"
+    }
     stages {
         stage('Checkout') {
             steps {
@@ -72,7 +74,6 @@ pipeline {
                 docker rm myapp
                 docker run -d --name myapp myapp:$image_version
             '''
-            sh 'docker run -d --name myapp myapp'
         }
         failure {
             echo 'This will run only if failed'
