@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment{
-        image_version = "${sh(date +%Y%m%d%H%M)}"
+        image_version = "${sh(`date +%Y%m%d%H%M`)}"
     }
     stages {
         stage('Checkout') {
