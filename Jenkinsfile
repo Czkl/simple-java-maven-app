@@ -48,7 +48,7 @@ pipeline {
                     ls
                     which docker
                     cat Jenkinsfile
-                    ls /target
+                    ls target
                 '''
                 sh './jenkins/scripts/deliver.sh'
                 sh 'docker --version'
