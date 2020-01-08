@@ -63,8 +63,5 @@ pipeline {
                 '''
             }
         }
-        stage('push images'){
-
-        }
     }
 }
