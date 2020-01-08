@@ -50,7 +50,6 @@ pipeline {
                     cat Jenkinsfile
                     ls target
                 '''
-                sh './jenkins/scripts/deliver.sh'
                 sh 'docker --version'
             }
         }
