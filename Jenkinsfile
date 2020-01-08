@@ -51,6 +51,7 @@ pipeline {
                     ls target
                 '''
                 sh 'docker --version'
+                sh 'docker build -t myapp .'
             }
         }
     }
