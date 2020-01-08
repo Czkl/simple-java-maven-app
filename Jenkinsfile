@@ -44,6 +44,7 @@ pipeline {
                 }
             }
             steps {
+                sh 'ls'
                 sh './jenkins/scripts/deliver.sh'
                 sh 'docker --version'
             }
