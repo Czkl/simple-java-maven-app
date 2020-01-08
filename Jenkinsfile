@@ -55,9 +55,6 @@ pipeline {
                 sh '''
                    image_version=`date +%Y%m%d%H%M`;
                    echo $image_version;
-                   docker stop myapp
-                   docker rm myapp
-                   docker rmi myapp
                    docker build -t myapp:$image_version .
                    docker run -d --name myapp myapp:$image_version
                 '''
